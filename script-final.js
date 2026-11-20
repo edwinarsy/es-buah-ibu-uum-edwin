@@ -11,7 +11,6 @@ const hargaPerPorsi = 1000;
 const rupiah = new Intl.NumberFormat("id-ID", {
   style: "currency", currency: "IDR", maximumFractionDigits: 0
 });
-const tombolSalinAlamat = document.getElementById("edwin_arsy_copy_btn");
 
 // 1. Navigasi mobile (buka & tutup)
 if (tombolMenu && navigasi) {
@@ -125,29 +124,13 @@ document.querySelectorAll(".edwin_arsy_product-link[data-menu]").forEach(tautan 
 });
 window.addEventListener("pageshow", perbaruiRingkasan);
 
-// 6. Tombol salin alamat lapak
-if (tombolSalinAlamat) {
-  tombolSalinAlamat.addEventListener("click", async () => {
-    const alamatLapak = "Es Buah Ibu Uum - Jl. Mangkubumi RT 02 / RW 12 No. 18 (Dekat Masjid Al-Ikhlas), Tasikmalaya";
-    try {
-      await navigator.clipboard.writeText(alamatLapak);
-      tombolSalinAlamat.textContent = "✓ Alamat Berhasil Disalin!";
-      setTimeout(() => {
-        tombolSalinAlamat.textContent = "📋 Salin Alamat Lapak";
-      }, 2400);
-    } catch {
-      tombolSalinAlamat.textContent = "📍 Jl. Mangkubumi RT 02 / RW 12 No. 18";
-    }
-  });
-}
-
-// 7. Menampilkan tahun berjalan secara otomatis pada bagian footer
+// 6. Menampilkan tahun berjalan secara otomatis pada bagian footer
 const elemenTahun = document.getElementById("edwin_arsy_year");
 if (elemenTahun) {
   elemenTahun.textContent = new Date().getFullYear();
 }
 
-// 8. Buka satu draf WhatsApp berisi semua rasa yang dipesan.
+// 7. Buka satu draf WhatsApp berisi semua rasa yang dipesan.
 formulirKontak.addEventListener("submit", event => {
   event.preventDefault();
   const nama = formulirKontak.elements.nama.value.trim();
